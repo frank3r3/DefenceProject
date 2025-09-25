@@ -52,13 +52,16 @@ export default function HomePage() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:1996/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await fetch(
+        "https://defencebackend.onrender.com/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       if (!res.ok) {
         const errData = await res.json();

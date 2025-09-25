@@ -52,17 +52,20 @@ export default function RegisterPage() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:1996/users/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName,
-          lastName,
-          email,
-          phoneNumber,
-          password,
-        }),
-      });
+      const res = await fetch(
+        "https://defencebackend.onrender.com/users/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            email,
+            phoneNumber,
+            password,
+          }),
+        }
+      );
 
       if (!res.ok) {
         const errData = await res.json();
